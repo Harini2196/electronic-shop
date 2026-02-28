@@ -1,0 +1,24 @@
+name: Web Application Deployment
+on: push
+jobs:
+  build-and-deploy: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup php
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+      - name: Install dependencies
+        run: composer install --no-dev --prefer-dist 
+      - name: Run tests
+        run: vendor/bin/phpunit --coverage-text
+      - name: Deploy to production
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "Deploying to production server..."
+          # Add your deployment commands here, e.g., using rsync or scp
+          # rsync -avz --exclude='vendor' . user@yourserver:/path/to/deployment
+          # ssh user@yourserver 'cd /path/to/deployment && php artisan migrate --force' 

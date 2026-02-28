@@ -3,6 +3,9 @@ on: push
 jobs:
   build-and-deploy: 
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write      # ← REQUIRED for OIDC
+      contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v2

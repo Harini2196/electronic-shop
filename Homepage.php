@@ -16,7 +16,7 @@
 			<div class="brand">
 				<a class="brandLogo" href="Homepage.php" aria-label="Home">🛍️</a>
 				<div class="brandText">
-					<div class="brandName">LaTrobe Online Electronic Shop</div>
+					<div class="brandName">HK Online Electronic Shop</div>
 					<div class="brandTag">Simple. Fast. Clean.</div>
 				</div>
 			</div>

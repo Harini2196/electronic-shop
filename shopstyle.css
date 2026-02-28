@@ -1,0 +1,357 @@
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+	font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+	line-height: 1.5;
+	background: #0b1220;
+	color: #e8eefc;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 18px;
+}
+
+/* ---------- Header + Nav ---------- */
+.siteHeader {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background: rgba(11, 18, 32, 0.85);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.headerRow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 14px;
+}
+
+.brand {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.brandLogo {
+	width: 40px;
+	height: 40px;
+	display: grid;
+	place-items: center;
+	border-radius: 12px;
+	background: rgba(255,255,255,0.08);
+	border: 1px solid rgba(255,255,255,0.10);
+}
+
+.brandName { font-weight: 800; letter-spacing: 0.2px; }
+.brandTag { font-size: 12px; color: rgba(232, 238, 252, 0.65); }
+
+.nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: flex-end;
+}
+
+.navLink {
+	padding: 8px 10px;
+	border-radius: 10px;
+	border: 1px solid rgba(255,255,255,0.10);
+	background: rgba(255,255,255,0.06);
+}
+.navLink:hover { background: rgba(255,255,255,0.10); }
+/* ---------- Messages ---------- */
+.message {
+	margin: 14px 0;
+	padding: 12px 14px;
+	border-radius: 12px;
+	border: 1px solid rgba(255,255,255,0.12);
+	background: rgba(255,255,255,0.06);
+}
+.successMessage {
+	border-color: rgba(76, 217, 100, 0.35);
+	background: rgba(76, 217, 100, 0.12);
+}
+.errorMessage {
+	border-color: rgba(255, 77, 79, 0.35);
+	background: rgba(255, 77, 79, 0.12);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+	display: grid;
+	grid-template-columns: 1.2fr 0.8fr;
+	gap: 16px;
+	padding: 18px;
+	border-radius: 18px;
+	border: 1px solid rgba(255,255,255,0.10);
+	background:
+		radial-gradient(1000px 500px at 20% 0%, rgba(120, 119, 255, 0.22), transparent 55%),
+		radial-gradient(800px 400px at 90% 20%, rgba(0, 209, 255, 0.18), transparent 55%),
+		rgba(255,255,255,0.04);
+}
+
+.heroTitle { margin: 0 0 6px 0; font-size: 38px; line-height: 1.1; }
+.heroSub { margin: 0 0 14px 0; color: rgba(232, 238, 252, 0.72); }
+
+.searchForm {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	margin: 10px 0 10px 0;
+}
+
+.searchInput {
+	flex: 1;
+	padding: 12px 12px;
+	border-radius: 12px;
+	border: 1px solid rgba(255,255,255,0.12);
+	background: rgba(255,255,255,0.06);
+	color: #e8eefc;
+	outline: none;
+}
+.searchInput::placeholder { color: rgba(232, 238, 252, 0.55); }
+.searchInput:focus { border-color: rgba(120, 119, 255, 0.55); }
+
+.btn {
+	padding: 12px 14px;
+	border-radius: 12px;
+	border: 1px solid rgba(255,255,255,0.12);
+	background: rgba(255,255,255,0.06);
+	color: #e8eefc;
+	cursor: pointer;
+	font-weight: 700;
+}
+.btn:hover { background: rgba(255,255,255,0.10); }
+.btnPrimary {
+	background: rgba(120, 119, 255, 0.22);
+	border-color: rgba(120, 119, 255, 0.45);
+}
+.btnGhost { background: transparent; }
+
+.quickLinks { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+	display: inline-block;
+	padding: 8px 10px;
+	border-radius: 999px;
+	border: 1px solid rgba(255,255,255,0.10);
+	background: rgba(255,255,255,0.05);
+	color: rgba(232, 238, 252, 0.85);
+}
+.chip:hover { background: rgba(255,255,255,0.10); }
+
+.promoCard {
+	padding: 14px;
+	border-radius: 16px;
+	border: 1px solid rgba(255,255,255,0.10);
+	background: rgba(255,255,255,0.05);
+}
+.promoBadge {
+	display: inline-block;
+	font-size: 12px;
+	padding: 6px 10px;
+	border-radius: 999px;
+	background: rgba(0, 209, 255, 0.15);
+	border: 1px solid rgba(0, 209, 255, 0.25);
+	margin-bottom: 10px;
+}
+.promoTitle { font-size: 20px; font-weight: 800; margin-bottom: 6px; }
+.promoText { color: rgba(232, 238, 252, 0.72); margin: 0 0 12px 0; }
+
+/* ---------- Ticker Animation ---------- */
+.ticker {
+	margin-top: 12px;
+	overflow: hidden;
+	border-radius: 14px;
+	border: 1px solid rgba(255,255,255,0.10);
+	background: rgba(255,255,255,0.04);
+}
+.tickerTrack {
+	display: flex;
+	gap: 10px;
+	padding: 10px;
+	width: max-content;
+	animation: tickerMove 18s linear infinite;
+}
+.tickerItem {
+	white-space: nowrap;
+	padding: 8px 10px;
+	border-radius: 999px;
+	border: 1px solid rgba(255,255,255,0.10);
+	background: rgba(255,255,255,0.05);
+	color: rgba(232, 238, 252, 0.85);
+}
+@keyframes tickerMove {
+	from { transform: translateX(0); }
+	to { transform: translateX(-40%); }
+}
+
+/* ---------- Feature Cards ---------- */
+
+.featureCard {
+	padding: 14px;
+	border-radius: 16px;
+	border: 1px solid rgba(255,255,255,0.10);
+	background: rgba(255,255,255,0.04);
+}
+.featureCard:hover { background: rgba(255,255,255,0.07); }
+.featureTitle { font-weight: 900; margin-bottom: 6px; }
+.featureText { color: rgba(232, 238, 252, 0.72); }
+
+/* ---------- Sections + Table ---------- */
+.section { margin-top: 20px; }
+.sectionHeader { margin-bottom: 10px; }
+.sectionTitle { margin: 0; font-size: 22px; }
+.sectionSub { margin: 2px 0 0 0; color: rgba(232, 238, 252, 0.70); }
+
+.card {
+	padding: 14px;
+	border-radius: 16px;
+	border: 1px solid rgba(255,255,255,0.10);
+	background: rgba(255,255,255,0.04);
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.table th, .table td {
+	padding: 10px;
+	border-bottom: 1px solid rgba(255,255,255,0.08);
+	vertical-align: top;
+}
+.table th { text-align: left; color: rgba(232, 238, 252, 0.85); }
+.right { text-align: right; }
+.tableLink { font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+.tiny { font-size: 12px; }
+.muted { color: rgba(232, 238, 252, 0.65); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+	.hero { grid-template-columns: 1fr; }
+}
+
+/* ---------- Your existing productBox (kept + slightly improved) ---------- */
+.productBox {
+	margin: 10px 0;
+	border: 1px solid rgba(255,255,255,0.12);
+	padding: 12px;
+	overflow: auto;
+	border-radius: 14px;
+	background: rgba(255,255,255,0.04);
+}
+.productBox img { float: left; margin-right: 12px; border-radius: 10px; }
+
+
+.dataTable { border-collapse: collapse; width: 100%; }
+.dataTable th, .dataTable td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+.dataTable th { background: #f2f2f2; }
+.navbar a { margin-right: 10px; }
+.cookieMessage { padding: 10px; margin: 10px 0; border: 1px solid #999; background: #f8f8f8; }
+
+
+/* Tables used in admin pages (CustomerList, OrderList, etc.) */
+.dataTable {
+    border-collapse: collapse;   /* single clean borders */
+    width: 100%;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Table header + cells */
+.dataTable th,
+.dataTable td {
+    border: 1px solid #333;      /* visible lines */
+    padding: 8px 10px;
+    text-align: left;
+}
+
+/* Header row styling */
+.dataTable th {
+    background-color: #07217e;
+    font-weight: bold;
+}
+
+
+/* Hover effect (nice polish, not required but good) */
+.dataTable tr:hover {
+    background-color: #165891;
+}
+
+.cartForm { margin-top: 12px; }
+.cartForm input[type="text"] { padding: 6px; margin-right: 8px; }
+.cartForm button {
+	padding: 6px 12px;
+	border: none;
+	border-radius: 6px;
+	background-color: #165891;
+	color: white;
+	cursor: pointer;
+}
+
+.AddNewCustomerForm button {
+	padding: 6px 12px;
+	border: none;
+	border-radius: 6px;
+	background-color: #165891;
+	color: white;
+	cursor: pointer;
+}
+
+.signupForm {
+	max-width: 400px;
+	padding: 15px;
+	border: 1px solid #ccc;
+	background-color: #7887c8;
+}
+
+.signupForm input[type="text"] {
+	width: 100%;
+	padding: 6px;
+	box-sizing: border-box;
+}
+
+.signupForm input[type="submit"] {
+	padding: 8px 16px;
+	font-weight: bold;
+}
+
+.cookieMessage {
+	margin-bottom: 12px;
+	padding: 10px;
+	border: 1px solid #999;
+	background-color: rgb(51, 51, 123);
+}
+
+
+/* Pagination container */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;        /* increase font size */
+}
+
+/* Previous / Next links */
+.pageLink {
+    margin: 0 15px;         /* space between links */
+    text-decoration: none;
+    font-weight: bold;
+    color: #0066cc;
+}
+
+/* Hover effect */
+.pageLink:hover {
+    text-decoration: underline;
+}
+
+/* Current page number */
+.pageNumber {
+    margin: 0 15px;
+    font-weight: bold;
+}

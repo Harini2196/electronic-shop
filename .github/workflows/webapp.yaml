@@ -23,7 +23,6 @@ jobs:
           aws-region: us-east-1 
       - name: Verify AWS identity
         run: aws sts get-caller-identity
-      - name: Deploy to production
-        if: github.ref == 'refs/heads/main'
+      - name: Deploy to S3
         run: |
           aws s3 sync . s3://alb-s3-webapp-html --exclude ".git/*" --exclude "node_modules/*" --exclude "vendor/*" --delete

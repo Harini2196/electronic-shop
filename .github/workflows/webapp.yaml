@@ -19,10 +19,16 @@ jobs:
       - name: Configure AWS Credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::211125304367:role/gh-actions-admin-role
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/gh-actions-admin-role
           aws-region: us-east-1 
-      - name: Verify AWS identity
-        run: aws sts get-caller-identity
+      - name: execute sonar-scanner
+        run: sonar-scanner -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} 
+      - name: Docker build
+        run: docker build -t webapp:latest .
+      - name: Docker push
+        run: |
+          docker tag webapp:latest 211125304367.dkr.ecr.us-east-1.amazonaws.com/webapp:latest && 
+          docker push 211125304367.dkr.ecr.us-east-1.amazonaws.com/webapp:latest
       - name: Deploy to S3
         run: |
           aws s3 sync . s3://alb-s3-webapp-html --exclude ".git/*" --exclude "node_modules/*" --exclude "vendor/*" --delete

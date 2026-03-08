@@ -22,7 +22,11 @@ jobs:
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/gh-actions-admin-role
           aws-region: us-east-1 
       - name: execute sonar-scanner
-        run: sonar-scanner -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} 
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+          args: |
+            -Dsonar.host.url=https://sonarcloud.io
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
       - name: Docker build
         run: docker build -t webapp:latest .
       - name: Docker push

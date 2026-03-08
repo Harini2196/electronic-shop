@@ -24,7 +24,7 @@ jobs:
       - name: execute sonar-scanner
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          SONAR_KEY: ${{ secrets.SONAR_KEY }}
+          SONAR_TOKEN: ${{ secrets.SONAR_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Docker build
         run: docker build -t webapp:latest .

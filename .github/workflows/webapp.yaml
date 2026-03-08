@@ -32,6 +32,9 @@ jobs:
             -Dsonar.projectVersion=1.0
             -Dsonar.organization=harini2196
             -Dsonar.sources=.
+        env:
+          SONAR_KEY: ${{ secrets.SONAR_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Docker build
         run: docker build -t webapp:latest .
       - name: Docker push

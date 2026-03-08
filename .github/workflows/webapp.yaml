@@ -26,7 +26,7 @@ jobs:
         with:
           args: |
             -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.login=${{ secrets.SONAR_KEY }}
       - name: Docker build
         run: docker build -t webapp:latest .
       - name: Docker push

@@ -23,15 +23,6 @@ jobs:
           aws-region: us-east-1 
       - name: execute sonar-scanner
         uses: SonarSource/sonarcloud-github-action@master
-        with:
-          args: |
-            -Dsonar.host.url=https://sonarcloud.io
-            -Dsonar.login=${{ secrets.SONAR_KEY }}
-            -Dsonar.projectKey=Harini2196_electronic-shop
-            -Dsonar.projectName=electronic-shop
-            -Dsonar.projectVersion=1.0
-            -Dsonar.organization=harini2196
-            -Dsonar.sources=.
         env:
           SONAR_KEY: ${{ secrets.SONAR_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

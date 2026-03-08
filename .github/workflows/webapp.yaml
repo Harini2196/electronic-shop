@@ -27,6 +27,11 @@ jobs:
           args: |
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.login=${{ secrets.SONAR_KEY }}
+            -Dsonar.projectKey=Harini2196_electronic-shop
+            -Dsonar.projectName=electronic-shop
+            -Dsonar.projectVersion=1.0
+            -Dsonar.organization=harini2196
+            -Dsonar.sources=.
       - name: Docker build
         run: docker build -t webapp:latest .
       - name: Docker push
